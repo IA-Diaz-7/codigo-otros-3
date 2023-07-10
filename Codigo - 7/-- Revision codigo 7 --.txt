@@ -1,0 +1,53 @@
+-- Revision codigo 7 --
+
+//Iber Alejandro Perez Diaz
+
+
+package codigo7;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Código7 {
+	public static void main(String[] args) { //se agrega static main
+		
+
+	Scanner scanner = new Scanner(System.in); //Se importa el scanner y se adjunta el System.in
+
+    HashMap<String, String> capitales = new HashMap<>(); //Se importa hashmap y se agrega strings en el hashmap
+
+    capitales.put("Canadá", "Otawwa");
+    capitales.put("Estados Unidos", "Washington DC");
+    capitales.put("México", "México DF");
+    capitales.put("Belice", "Belmopán");
+    capitales.put("Costa rica", "San José");
+    capitales.put("El Salvador", "");
+    capitales.put("Guatemala", "Ciudad de Guatemala");
+    capitales.put("Honduras", "Tegucigalpa");
+    capitales.put("Nicaragua", "Managua");
+    capitales.put("Panamá", "Panamá");
+    
+   
+    String pais = ""; //String sin 'g'
+    do {
+      System.out.println("Escribe el nombre de un país y te diré su capital: "); //se corrige in, por out
+      pais = scanner.nextLine(); //se corrgie scanner por Line ya que esta recibiendo un string
+      
+      if (!pais.equals("salir")) {
+        if (capitales.containsKey(pais)) { //Se agrega key para verificar si la clave (país) existe en el HashMap.
+          System.out.println("La capital de " + pais);
+          System.out.println(" es " + capitales.get(pais)); //se cambia put por get para obtener el valor de la capital existente en lugar de sobrescribirlo.
+        } else {
+          System.out.print("No conozco la respuesta ");
+          System.out.print("¿cuál es la capital de " + pais + "?: ");
+          String capital  = scanner.nextLine();									// se renombra variable 's' como scanner para mayor legibilidad
+          capitales.put(pais, capital); //se renombra variabla ca por capital para mayor entendimiento
+          System.out.println("Gracias por enseñarme nuevas capitales");
+        }
+      }
+    } while (!pais.equals("salir")); //se agrega h en while y parentesis que hacia falta
+  }
+
+	
+		
+	}
